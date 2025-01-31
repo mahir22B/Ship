@@ -88,10 +88,10 @@ export default function ReactCodeRunner({ codeBlocks }: { codeBlocks: CodeBlock[
       files={{
         ...initialFiles,
         ...shadcnFiles,
-        "/global.css": {
-          code: globalCssBlock?.content || '',
-          hidden: false
-        },
+        // "/global.css": {
+        //   code: globalCssBlock?.content || '',
+        //   hidden: false
+        // },
         "/tsconfig.json": {
           code: `{
             "include": [

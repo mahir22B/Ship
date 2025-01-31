@@ -31,11 +31,11 @@ type ChatBoxProps = {
   codeBlocks: CodeBlock[];
 };
 
-interface UserMessage {
-  role: 'user';
-  content: string;
-  timestamp: string; // ISO string timestamp
-}
+// interface UserMessage {
+//   role: 'user';
+//   content: string;
+//   timestamp: string; // ISO string timestamp
+// }
 
 // interface ConversationContext {
 //   conversation_id: string;
@@ -71,7 +71,7 @@ export default function ChatBox({
   useEffect(() => {
     // When an error message is available, set it in the textarea
     if (lastSubmittedError && textareaRef.current) {
-      textareaRef.current.value = `Fix this error: ${lastSubmittedError}?`;
+      textareaRef.current.value = `For the given code, think step by step and fix this error: ${lastSubmittedError}?`;
       textareaRef.current.focus();
     }
   }, [lastSubmittedError]);

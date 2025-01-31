@@ -591,11 +591,31 @@ export type CodeModificationRequest = {
   newMessage: string;
 };
 
+// const client = new Anthropic();
+
+const tokenCount = await anthropic.messages.countTokens({
+  model: 'claude-3-5-sonnet-20241022',
+  system: getMainCodingPrompt(),
+  messages: [
+    {
+      role: "user",
+      content: `For all web apps I ask you to make, have them be beautiful, comprehensive and functional with a clean, modern design and smooth animations.
+                  Make webpages that are fully featured, comprehensive and worthy for production. 
+                  By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, Framer Motion for animations, Shadcn for UI components, recharts for charts, Context api for state management and Lucide React for icons. 
+                  DO NOT install other packages for UI themes, icons, etc unless I request them. Use icons from lucide-react for icons, only valid icons you know exist. 
+                  Use stock photos from unsplash where appropriate, only valid URLs you know exist. 
+                  Do not download the images, only link to them in image tags. DO NOT MENTION THE TECH STACK.`, 
+    }
+  ],
+});
+console.log('Main completion tokens:', tokenCount);
+
 // Initial code generation
 export async function streamCompletion(prompt: string, screenshotUrl?: string) {
   const userMessage = screenshotUrl
     ? `${prompt}\nScreenshot URL: ${screenshotUrl}`
     : prompt;
+    
 
   const stream = await anthropic.messages.stream({
     model: "claude-3-5-sonnet-20241022",
@@ -611,7 +631,9 @@ export async function streamCompletion(prompt: string, screenshotUrl?: string) {
                   Do not download the images, only link to them in image tags. DO NOT MENTION THE TECH STACK.${userMessage}`,
       }
     ],
+    
     system: getMainCodingPrompt(),
+    
   });
   
   return stream.toReadableStream();
