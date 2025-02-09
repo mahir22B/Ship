@@ -270,7 +270,7 @@ export default function CodeViewer({
 
   const renderCodeBlock = (block: CodeBlock, index: number) => (
     <div 
-      key={block.filename?.name || index} 
+    key={`${block.filename?.name}-${block.content?.slice(0, 10)}-${index}`} // More unique key
       className="flex flex-col"
       ref={block.status === "generating" ? generatingBlockRef : undefined}
     >

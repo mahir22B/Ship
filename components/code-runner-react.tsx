@@ -288,8 +288,8 @@ const shadcnFiles = {
 
 const dependencies = {
   "lucide-react": "latest",
-  recharts: "2.15.0",
-  "react-router-dom": "latest",
+  "recharts": "2.15.0",
+  "react-router-dom": "^6.26.2",
   "@radix-ui/react-accordion": "^1.2.0",
   "@radix-ui/react-alert-dialog": "^1.1.1",
   "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -316,7 +316,7 @@ const dependencies = {
   "@radix-ui/react-toggle-group": "^1.1.0",
   "@radix-ui/react-tooltip": "^1.1.2",
   "class-variance-authority": "^0.7.0",
-  clsx: "^2.1.1",
+  "clsx": "^2.1.1",
   "date-fns": "^3.6.0",
   "embla-carousel-react": "^8.1.8",
   "react-day-picker": "^8.10.1",
@@ -324,5 +324,9 @@ const dependencies = {
   "tailwind-merge": "^2.4.0",
   "tailwindcss-animate": "^1.0.7",
   "framer-motion": "^11.15.0",
-  vaul: "^0.9.1",
+  "vaul": "^0.9.1",
+  "three": "^0.173.0",
+  "@types/three": "^0.162.0",
+  "@react-three/fiber": "^8.15.0",
+  "@react-three/drei": "^9.99.0"
 };

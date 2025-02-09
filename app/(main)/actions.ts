@@ -309,10 +309,18 @@ function getModificationSystemPrompt() {
   return `You are a React development assistant specializing in code modifications.
 Your task is to modify existing code based on user requests while maintaining code quality and structure.
 
+If you have suggestions or improvements:
+1. Present them as direct system recommendations AFTER providing the requested code
+2. Never create simulated user dialogues or conversations
+3. Never roleplay as a user asking questions
+4. Never pretend to be the user suggesting changes
+
  For any component that needs to be modified or created, ALWAYS wrap it in file path tags:
   {filePath=path/to/file.tsx}
-
+FULL CODE
    {/filePath}
+
+   ALWAYS ALWAYS ALWAYS RETURN FULL COMPONENT CODE
 
  Use exact paths:
   - Root components: {filePath=src/App.tsx}
@@ -391,6 +399,7 @@ Your task is to modify existing code based on user requests while maintaining co
   // ADD global.css styles HERE directly
    global:
     :root {}
+    body{}
   }
     return (
      <>
@@ -496,6 +505,7 @@ export const useTheme = () => {
   //ADD global.css styles HERE directly
    global:
     :root {}
+    body{}
   }
     return (
      <ThemeProvider defaultTheme="" storageKey="">
@@ -641,6 +651,7 @@ export async function streamCompletion(prompt: string, screenshotUrl?: string) {
 
 // Code modification
 export async function streamCodeModification(request: CodeModificationRequest) {
+  
 
   const stream = await anthropic.messages.stream({
     model: "claude-3-5-sonnet-20241022",

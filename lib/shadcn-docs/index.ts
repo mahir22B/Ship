@@ -43,6 +43,8 @@ import * as Card from "./card";
 
 import * as Checkbox from "./checkbox";
 
+import * as Dialog from "./dialog";
+
 import * as Input from "./input";
 import * as Label from "./label";
 import * as NavigationMenu from "./navigation-menu";
@@ -61,6 +63,7 @@ const shadcnDocs = [
   Calendar,
   Card,
   Checkbox,
+  Dialog,
   Input,
   Label,
   NavigationMenu,
